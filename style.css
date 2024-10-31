@@ -34,7 +34,7 @@ body {
     margin: 50px auto 0;
     width: 180px;
     height: 220px;
-    background: #4fc6f5;
+    background: #b900b0;
     border-top-left-radius: 90px;
     border-top-right-radius: 90px;
 }
@@ -48,7 +48,7 @@ body {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: #4fc6f5;
+    background: #b900b0;
     animation: floaty .2s infinite;
 }
 
@@ -80,7 +80,7 @@ body {
 }
 
 #spooky #body #mouth {
-    background: #6774a7;
+    background: #ffffff;
     margin: 25px auto 0;
     width: 60px;
     height: 30px;
@@ -91,7 +91,7 @@ body {
 #spooky #body #mouth:before {
     content: ' ';
     display: block;
-    background: #4fc6f5;
+    background: #b900b0;
     margin-left: 20px;
     width: 10px;
     height: 10px;
@@ -111,7 +111,7 @@ body {
     content: ' ';
     width: 36px;
     height: 36px;
-    background: #4fc6f5;
+    background: #b900b0;
     border-radius: 50%;
 } 
 
@@ -143,3 +143,24 @@ body {
         transform: scale(0.8);
     }
 }
+
+/* HTML: <div class="wavy-line"></div> */
+.wavy-line {
+
+
+
+    --s: 44px; /* size of the wave */
+    --b: 16px; /* thickness of the line */
+    --m: 0.4; /* curvature of the wave [0 2] */
+    
+    background: #ee61e7;
+    --R: calc(var(--s)*sqrt(var(--m)*var(--m) + 1) + var(--b)/2);
+    height: calc(2*var(--R));
+    width: 100%;
+    --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+    mask:
+      radial-gradient(var(--R) at left 50% bottom calc(-1*var(--m)*var(--s)), var(--_g)) 
+       calc(50% - 2*var(--s)) calc(50% - var(--s)/2 - var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x,
+      radial-gradient(var(--R) at left 50% top calc(-1*var(--m)*var(--s)),var(--_g)) 
+       50% calc(50% + var(--s)/2 + var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x;
+  }
